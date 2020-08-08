@@ -6,12 +6,16 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:05:28 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/07 12:53:16 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 14:45:09 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
+
+# define EMPTY 0
+# define ENEMY -2
+# define ME -1
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -27,10 +31,22 @@ typedef struct  s_struct
     int     map_width;
     int     piece_height;
     int     piece_width;
-    int     piece_min_x;
-    int     piece_max_x;
-    int     piece_min_y;
-    int     piece_max_y;
+    int     min_x;
+    int     max_x;
+    int     min_y;
+    int     max_y;
+    int     best_ratings[3];
+    int	    edge;
+	int	    rating;
+
 }               t_struct;
+
+int			get_piece(t_struct *info, char *line);
+int		    **create_box(int width, int height);
+void		heatmap(t_struct *info);
+int			get_map(t_struct *info, char *line);
+void        free_piece(t_struct *info);
+void        final_free(t_struct *info, int ret_val);
+void        place_piece(t_struct *info);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:52:15 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 12:48:46 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:31:44 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_itoa_base_size(unsigned long long value, int base,\
 					int *size, char flag);
 int					get_next_line(const int fd, char **line);
+int					ft_printf(const char *format, ...);
 
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memset(void *b, int c, size_t len);

@@ -6,16 +6,16 @@
 #    By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 12:02:04 by bbehm             #+#    #+#              #
-#    Updated: 2020/08/08 15:12:42 by bbehm            ###   ########.fr        #
+#    Updated: 2020/08/08 15:24:12 by bbehm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		bbehm.filler
 LIBFT_A =	libft.a
 
-COMP =		gcc -Wall -Werror -Wextra $(PRINTF_H) $(LIBFT_H) -c -o
+COMP =		gcc -Wall -Werror -Wextra $(FILLER_H) $(LIBFT_H) -c -o
 
-PRINTF_H =	-I includes/
+FILLER_H =	-I includes/
 LIBFT_H = 	-I srcs/libft/includes
 
 OBJ_DIR =	obj/
