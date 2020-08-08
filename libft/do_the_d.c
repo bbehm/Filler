@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   do_the_d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:00:51 by bbehm             #+#    #+#             */
-/*   Updated: 2020/06/30 10:13:22 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:49:40 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** The typecast function casts the output to the correct type according

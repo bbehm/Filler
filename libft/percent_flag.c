@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   percent_flag.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/15 15:05:28 by bbehm             #+#    #+#             */
-/*   Updated: 2020/06/29 14:44:42 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:51:04 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** Percent flag handles the situation where there's a double %% in which

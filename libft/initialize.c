@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 11:38:10 by bbehm             #+#    #+#             */
-/*   Updated: 2020/06/29 14:40:41 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:50:50 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** function to initialize struct

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fix_width.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 15:12:35 by bbehm             #+#    #+#             */
-/*   Updated: 2020/06/29 14:39:57 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:50:33 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** Fix width checks for field width specifiers and saves that info in the

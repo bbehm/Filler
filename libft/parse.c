@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 11:55:38 by bbehm             #+#    #+#             */
-/*   Updated: 2020/07/09 14:36:13 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:50:57 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 static void	flags(t_tab *tab, const char *format)
 {

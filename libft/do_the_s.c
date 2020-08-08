@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   do_the_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 16:30:43 by bbehm             #+#    #+#             */
-/*   Updated: 2020/07/02 19:17:31 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:50:05 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** The do_the_s function takes care of string conversions, checks for

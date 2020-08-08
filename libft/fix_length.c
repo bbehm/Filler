@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fix_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 18:38:47 by bbehm             #+#    #+#             */
-/*   Updated: 2020/07/09 14:44:11 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:50:23 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** fix length has its own functions for all length specifier flags. They

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fix_precision.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 14:39:41 by bbehm             #+#    #+#             */
-/*   Updated: 2020/06/29 14:34:30 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:50:28 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** fix precision checks for precision specifiers in format string and stores

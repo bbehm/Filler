@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   do_the_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 17:20:07 by bbehm             #+#    #+#             */
-/*   Updated: 2020/07/09 13:30:07 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:49:59 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** The do_the_p function takes care of pointer conversions, checks for

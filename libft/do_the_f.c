@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   do_the_f.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 11:24:42 by bbehm             #+#    #+#             */
-/*   Updated: 2020/07/14 10:45:30 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:49:47 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/includes/libft.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
 /*
 ** The do_the_f function takes care of float conversions, checks for
