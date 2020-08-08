@@ -6,7 +6,7 @@
 #    By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 15:45:47 by bbehm             #+#    #+#              #
-#    Updated: 2020/08/08 15:33:14 by bbehm            ###   ########.fr        #
+#    Updated: 2020/08/08 15:39:09 by bbehm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC = ft_putchar.c ft_putstr.c ft_strcmp.c ft_strdup.c ft_strlen.c ft_atoi.c \
 	  ft_intlen_u.c ft_putnbr_u.c get_next_line.c ft_printf_srcs/ft_printf.c \
 	  ft_printf_srcs/do_the_d.c ft_printf_srcs/do_the_u.c \
 	  ft_printf_srcs/do_the_o.c ft_printf_srcs/do_the_x.c \
-	  ft_printf_srcs/do_the_f.c ft_printf_srcs/do_the_s.c do_the_c.c\
+	  ft_printf_srcs/do_the_f.c ft_printf_srcs/do_the_s.c ft_printf_srcs/do_the_c.c\
 	  ft_printf_srcs/do_the_p.c ft_printf_srcs/fix_length.c ft_printf_srcs/fix_width.c \
 	  ft_printf_srcs/fix_precision.c ft_printf_srcs/initialize.c\
 	  ft_printf_srcs/parse.c ft_printf_srcs/percent_flag.c \
