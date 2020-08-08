@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+         #
+#    By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/06 12:02:04 by bbehm             #+#    #+#              #
-#    Updated: 2020/08/06 12:04:28 by bbehm            ###   ########.fr        #
+#    Updated: 2020/08/08 15:12:42 by bbehm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		bbehm.filler.a
+NAME =		bbehm.filler
 LIBFT_A =	libft.a
 
 COMP =		gcc -Wall -Werror -Wextra $(PRINTF_H) $(LIBFT_H) -c -o
@@ -23,8 +23,11 @@ SRC_DIR =	srcs/
 LIB_DIR =	libft/
 
 CFILE =		main.c \
-			
-			
+			free_helpers.c \
+			game_strategy.c \
+			map_utilities.c \
+			piece_utilities.c \
+			heatmap.c	
 
 CFIND =		$(CFILE:%=$(SRC_DIR)%)
 
