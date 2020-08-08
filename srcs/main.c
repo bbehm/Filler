@@ -6,7 +6,7 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:04:46 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/07 12:58:41 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 13:01:27 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static t_struct	*initialize(t_struct *info)
 	info->map_height = 0;
 	info->piece_height = 0;
 	info->piece_width = 0;
-	info->piece_max_x = -1;
-	info->piece_max_y = -1;
-	info->piece_min_x = -1;
-	info->piece_min_y = -1;
+	info->max_x = -1;
+	info->max_y = -1;
+	info->min_x = -1;
+	info->min_y = -1;
 	return (info);
 }
 
@@ -64,7 +64,7 @@ static int		do_the_loop(t_struct *info, int fd)
 {
 	char *line;
 
-	while (ft_get_next_line(fd, &line) > 0)
+	while (get_next_line(fd, &line) > 0)
 	{
 		if (ft_strncmp("$$$", line, 3) == 0)
 		{
@@ -74,8 +74,7 @@ static int		do_the_loop(t_struct *info, int fd)
 		else if (ft_strncmp("Plateau", line, 7) == 0)
 		{
 			if (get_map(info, &line[8]))
-				return (-1),
-			map_score(info);
+				return (-1);
 		}
 		else if (ft_strncmp("Piece", line, 5) == 0)
 		{
@@ -97,12 +96,13 @@ int				main(int argc, char **argv)
 
 	fd = 0;
 	ret_val = 0;
+	info = NULL;
 	if (argc == 2)
 		fd = open(argv[1], O_RDONLY);
 	if (!(info = initialize(info)))
 		return (-1);
 	if (do_the_loop(info, fd) == -1)
 		ret_val = 1;
-	final_free(info);
+	final_free(info, ret_val);
 	return (0);
 }
