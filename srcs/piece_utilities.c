@@ -6,7 +6,7 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:52:33 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 12:44:09 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:37:49 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static void	get_more_piece(t_struct *info, int y, char *line)
 
 int			get_piece(t_struct *info, char *line)
 {
-	char	*line;
 	int		y;
 
 	y = 0;
@@ -69,7 +68,7 @@ int			get_piece(t_struct *info, char *line)
 		return (-1);
 	if (!(info->piece = create_box(info->piece_width, info->piece_height)))
 		return (-1);
-	while (ft_get_next_line(0, &line) > 0 && y < info->piece_height)
+	while (get_next_line(0, &line) > 0 && y < info->piece_height)
 	{
 		get_more_piece(info, y, line);
 		y++;

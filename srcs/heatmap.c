@@ -6,7 +6,7 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 14:29:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 12:43:00 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/08 15:38:21 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void		heatmap(t_struct *info)
 	int	y;
 
 	y = 0;
-	ft_get_next_line(1, &line);
+	get_next_line(1, &line);
 	ft_strdel(&line);
-	while (ft_get_next_line(0, &line) > 0 && y < info->map_height)
+	while (get_next_line(0, &line) > 0 && y < info->map_height)
 	{
 		hold = line;
 		while ((*line >= '0' && *line <= '9') || *line == ' ')
