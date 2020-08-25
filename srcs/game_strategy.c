@@ -6,12 +6,11 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 13:10:02 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 15:13:15 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/25 13:59:21 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-#include "../libft/includes/libft.h"
 
 /*
 ** Checks if rating is best so far and saves info in struct
@@ -27,10 +26,14 @@ static void	compare_rating(t_struct *info, int rating, int y, int x)
 	}
 }
 
-static int	try_placing_two(t_struct *info, int y, int x, int y_index)
+static int	try_placing(t_struct *info, int y, int x)
 {
+	int y_index;
 	int x_index;
-	
+
+	y_index = 0;
+	info->edge = 0;
+	info->rating = 0;
 	while (y_index < info->piece_height)
 	{
 		x_index = 0;
@@ -59,16 +62,6 @@ static int	try_placing_two(t_struct *info, int y, int x, int y_index)
 	return (-1);
 }
 
-static int	try_placing(t_struct *info, int y, int x)
-{
-	int y_index;
-
-	y_index = 0;
-	info->edge = 0;
-	info->rating = 0;
-	return (try_placing_two(info, y, x, y_index));
-}
-
 void		place_piece(t_struct *info)
 {
 	int y;
@@ -77,7 +70,7 @@ void		place_piece(t_struct *info)
 
 	y = 0;
 	info->best_ratings[0] = 0;
-	while ((info->map_width - info->max_y) > (y - info->min_y))
+	while ((info->map_height - info->max_y) > (y - info->min_y))
 	{
 		x = 0;
 		while ((info->map_width - info->max_x) > (x - info->min_x))

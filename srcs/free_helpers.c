@@ -6,12 +6,11 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:17:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/07 12:38:26 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/25 13:57:58 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-#include "../libft/includes/libft.h"
 
 /*
 ** Function for freeing map and struct at the end of program

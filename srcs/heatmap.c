@@ -6,19 +6,18 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 14:29:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 15:38:21 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/25 13:58:37 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-#include "../libft/includes/libft.h"
 
 /*
 ** need to skip one line that isn't map
 ** checking both capital and lower letter
 */
 
-static int	chase_opponent(t_struct *info, int y, int x)
+int	chase_opponent(t_struct *info, int y, int x)
 {
 	int y_two;
 	int x_two;
@@ -26,6 +25,7 @@ static int	chase_opponent(t_struct *info, int y, int x)
 	int best;
 
 	y_two = 0;
+	best = 0;
 	while (y_two < info->map_height)
 	{
 		x_two = 0;
@@ -45,7 +45,7 @@ static int	chase_opponent(t_struct *info, int y, int x)
 	return (best);
 }
 
-static void	map_score(t_struct *info)
+void	map_score(t_struct *info)
 {
 	int y;
 	int x;
@@ -64,7 +64,7 @@ static void	map_score(t_struct *info)
 	}
 }
 
-static void	map_existing(t_struct *info, int y, char *line)
+void	map_existing(t_struct *info, int y, char *line)
 {
 	int x;
 
@@ -89,9 +89,9 @@ void		heatmap(t_struct *info)
 	int	y;
 
 	y = 0;
-	get_next_line(1, &line);
+	get_next_line(0, &line);
 	ft_strdel(&line);
-	while (get_next_line(0, &line) > 0 && y < info->map_height)
+	while (y < info->map_height && get_next_line(0, &line) > 0)
 	{
 		hold = line;
 		while ((*line >= '0' && *line <= '9') || *line == ' ')
@@ -100,5 +100,4 @@ void		heatmap(t_struct *info)
 		ft_strdel(&hold);
 		y++;
 	}
-	map_score(info);
 }

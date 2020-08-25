@@ -6,19 +6,20 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:04:46 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 13:01:27 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/25 13:59:56 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-#include "../libft/includes/libft.h"
 
 /*
 ** Initializes the info struct
 */
 
-static t_struct	*initialize(t_struct *info)
+t_struct	*initialize(void)
 {
+	t_struct	*info;
+
 	if (!(info = (t_struct *)malloc(sizeof(t_struct))))
 		return (NULL);
 	info->map = NULL;
@@ -40,7 +41,7 @@ static t_struct	*initialize(t_struct *info)
 static int		get_player_char(t_struct *info, int num)
 {
 	if (num != 1 && num != 2)
-		return (-1);
+		return (1);
 	if (num == 1)
 	{
 		info->me = 'O';
@@ -60,26 +61,27 @@ static int		get_player_char(t_struct *info, int num)
 ** the heatmap and piece placing function.
 */
 
-static int		do_the_loop(t_struct *info, int fd)
+static int		do_the_loop(t_struct *info)
 {
 	char *line;
 
-	while (get_next_line(fd, &line) > 0)
+	while (get_next_line(0, &line) > 0)
 	{
 		if (ft_strncmp("$$$", line, 3) == 0)
 		{
 			if (get_player_char(info, ft_atoi(&line[10])))
-				return (-1);
+				return (1);
 		}
 		else if (ft_strncmp("Plateau", line, 7) == 0)
 		{
 			if (get_map(info, &line[8]))
-				return (-1);
+				return (1);
+			map_score(info);
 		}
 		else if (ft_strncmp("Piece", line, 5) == 0)
 		{
 			if (get_piece(info, &line[6]))
-				return (-1);
+				return (1);
 			place_piece(info);
 			free_piece(info);
 		}
@@ -88,21 +90,16 @@ static int		do_the_loop(t_struct *info, int fd)
 	return (0);
 }
 
-int				main(int argc, char **argv)
+int				main(void)
 {
+	int			ret_val;
 	t_struct	*info;
-	int		fd;
-	int		ret_val;
-
-	fd = 0;
+	
 	ret_val = 0;
-	info = NULL;
-	if (argc == 2)
-		fd = open(argv[1], O_RDONLY);
-	if (!(info = initialize(info)))
-		return (-1);
-	if (do_the_loop(info, fd) == -1)
+	if (!(info = initialize()))
+		return (1);
+	if (do_the_loop(info) == 1)
 		ret_val = 1;
 	final_free(info, ret_val);
-	return (0);
+	return (ret_val);
 }

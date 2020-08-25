@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piece_utilities.c                                  :+:      :+:    :+:   */
+/*   utilities.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:52:33 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 15:37:49 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/25 12:28:19 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-#include "../libft/includes/libft.h"
 
 /*
 ** Reinitializes coordinates before looking at a new piece
@@ -54,7 +53,7 @@ static void	get_more_piece(t_struct *info, int y, char *line)
 }
 
 /*
-** Checks width, height and coordinates of piece and saves info in
+** Checks map_width, map_height and coordinates of piece and saves info in
 ** the struct
 */
 
@@ -65,10 +64,10 @@ int			get_piece(t_struct *info, char *line)
 	y = 0;
 	reinitialize_piece(info, line);
 	if (info->piece_width < 1 || info->piece_height < 1)
-		return (-1);
+		return (1);
 	if (!(info->piece = create_box(info->piece_width, info->piece_height)))
-		return (-1);
-	while (get_next_line(0, &line) > 0 && y < info->piece_height)
+		return (1);
+	while (y < info->piece_height && get_next_line(0, &line) > 0)
 	{
 		get_more_piece(info, y, line);
 		y++;

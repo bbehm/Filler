@@ -6,12 +6,11 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:52:27 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/08 12:59:47 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/08/25 13:58:52 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-#include "../libft/includes/libft.h"
 
 /*
 ** Creates an integer array of zeros - used for both the map and individual
@@ -51,10 +50,10 @@ int				get_map(t_struct *info, char *line)
 			line++;
 		line++;
 		info->map_width = ft_atoi(line);
-		if (!(info->map = create_box(info->map_width, info->map_height)))
-			return (-1);
 		if (info->map_height < 1 || info->map_width < 1)
-			return (-1);
+			return (1);
+		if (!(info->map = create_box(info->map_width, info->map_height)))
+			return (1);
 	}
 	heatmap(info);
 	return (0);
