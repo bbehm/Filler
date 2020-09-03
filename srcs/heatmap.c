@@ -6,7 +6,7 @@
 /*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 14:29:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/02 15:25:14 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/03 17:34:18 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** checking both capital and lower letter
 */
 
-int	chase_opponent(t_struct *info, int y, int x)
+int			chase_opponent(t_struct *info, int y, int x)
 {
 	int y_two;
 	int x_two;
@@ -45,7 +45,7 @@ int	chase_opponent(t_struct *info, int y, int x)
 	return (best);
 }
 
-void	map_score(t_struct *info)
+void		map_score(t_struct *info)
 {
 	int y;
 	int x;
@@ -64,7 +64,7 @@ void	map_score(t_struct *info)
 	}
 }
 
-void	map_existing(t_struct *info, int y, char *line)
+void		map_existing(t_struct *info, int y, char *line)
 {
 	int x;
 
@@ -84,14 +84,14 @@ void	map_existing(t_struct *info, int y, char *line)
 
 /*
 ** Function for creating a heatmap to map out which places are strategically
-** good choices to place pieces. It checks 
+** good choices to place pieces. It checks
 */
 
 void		heatmap(t_struct *info)
 {
-	char *line;
-	char *hold;
-	int	y;
+	char	*line;
+	char	*hold;
+	int		y;
 
 	y = 0;
 	get_next_line(0, &line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utilities.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:52:27 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/25 13:58:52 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/03 17:32:01 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		**create_box(int width, int height)
 	return (map);
 }
 
-int				get_map(t_struct *info, char *line)
+int		get_map(t_struct *info, char *line)
 {
 	if (info->map == NULL)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:04:46 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/25 13:59:56 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/03 17:33:16 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Initializes the info struct
 */
 
-t_struct	*initialize(void)
+t_struct		*initialize(void)
 {
 	t_struct	*info;
 
@@ -56,37 +56,32 @@ static int		get_player_char(t_struct *info, int num)
 }
 
 /*
-** The game loop, first it collects relevant info on player characters
-** and map outline, then keeps on reading pieces and sends pieces to
-** the heatmap and piece placing function.
+** This function checks the input from game vm. First it collects relevant info
+** on player characters and map outline, then keeps on reading pieces
+** and sends pieces to the heatmap and piece placing function.
 */
 
-static int		do_the_loop(t_struct *info)
+static int		check_input(t_struct *info, char *line)
 {
-	char *line;
-
-	while (get_next_line(0, &line) > 0)
+	if (ft_strncmp("$$$", line, 3) == 0)
 	{
-		if (ft_strncmp("$$$", line, 3) == 0)
-		{
-			if (get_player_char(info, ft_atoi(&line[10])))
-				return (1);
-		}
-		else if (ft_strncmp("Plateau", line, 7) == 0)
-		{
-			if (get_map(info, &line[8]))
-				return (1);
-			map_score(info);
-		}
-		else if (ft_strncmp("Piece", line, 5) == 0)
-		{
-			if (get_piece(info, &line[6]))
-				return (1);
-			place_piece(info);
-			free_piece(info);
-		}
-		ft_strdel(&line);
+		if (get_player_char(info, ft_atoi(&line[10])))
+			return (-1);
 	}
+	else if (ft_strncmp("Plateau", line, 7) == 0)
+	{
+		if (get_map(info, &line[8]))
+			return (-1);
+		map_score(info);
+	}
+	else if (ft_strncmp("Piece", line, 5) == 0)
+	{
+		if (get_piece(info, &line[6]))
+			return (-1);
+		place_piece(info);
+		free_piece(info);
+	}
+	ft_strdel(&line);
 	return (0);
 }
 
@@ -94,12 +89,16 @@ int				main(void)
 {
 	int			ret_val;
 	t_struct	*info;
-	
+	char		*line;
+
 	ret_val = 0;
 	if (!(info = initialize()))
 		return (1);
-	if (do_the_loop(info) == 1)
-		ret_val = 1;
+	while (get_next_line(0, &line) > 0)
+	{
+		if (check_input(info, line) == -1)
+			ret_val = 1;
+	}
 	final_free(info, ret_val);
 	return (ret_val);
 }
