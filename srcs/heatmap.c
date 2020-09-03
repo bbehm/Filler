@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heatmap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 14:29:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/25 13:58:37 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/02 15:25:14 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ void	map_existing(t_struct *info, int y, char *line)
 		x++;
 	}
 }
+
+/*
+** Function for creating a heatmap to map out which places are strategically
+** good choices to place pieces. It checks 
+*/
 
 void		heatmap(t_struct *info)
 {

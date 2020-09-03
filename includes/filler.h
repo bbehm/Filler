@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:05:28 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/25 13:58:12 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/02 14:59:42 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct  s_struct
     int     max_x;
     int     min_y;
     int     max_y;
-    int     best_ratings[3];
+    int     best[3];
     int	    edge;
 	int	    rating;
 

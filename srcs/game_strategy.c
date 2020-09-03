@@ -3,30 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   game_strategy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 13:10:02 by bbehm             #+#    #+#             */
-/*   Updated: 2020/08/25 13:59:21 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/02 15:01:00 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
 /*
-** Checks if rating is best so far and saves info in struct
+** Result returning help function. Prints the coordinates of the best rated
+** spot to put the piece according to the heatmap.
 */
 
-static void	compare_rating(t_struct *info, int rating, int y, int x)
+static void	return_result(t_struct *info)
 {
-	if (rating < info->best_ratings[0] || info->best_ratings[0] == 0)
+	if (info->best[0] > 0)
 	{
-		info->best_ratings[0] = rating;
-		info->best_ratings[1] = y - info->min_y;
-		info->best_ratings[2] = x - info->min_x;
+		ft_putnbr(info->best[1]);
+		ft_putstr(" ");
+		ft_putnbr(info->best[2]);
+		ft_putstr("\n");
+	}
+	else
+	{
+		ft_putnbr(0);
+		ft_putstr(" ");
+		ft_putnbr(0);
+		ft_putstr("\n");
 	}
 }
 
-static int	try_placing(t_struct *info, int y, int x)
+static int	give_me_space(t_struct *info, int y, int x)
+{
+	if ((y >= info->map_height) ||\
+	(x >= info->map_width) || info->map[y][x] == ENEMY)
+		return (-1);
+	else if (info->map[y][x] == ME)
+	{
+		info->edge++;
+		if (info->edge == 2)
+			return (-1);
+	}
+	else
+		info->rating += info->map[y][x];
+	return (0);
+}
+
+static int	try_place(t_struct *info, int y, int x)
 {
 	int y_index;
 	int x_index;
@@ -41,17 +66,8 @@ static int	try_placing(t_struct *info, int y, int x)
 		{
 			if (info->piece[y_index][x_index] == 1)
 			{
-				if ((y + y_index >= info->map_height) ||\
-				(x + x_index >= info->map_width) || info->map[y + y_index][x + x_index] == ENEMY)
+				if (give_me_space(info, y + y_index, x + x_index) == -1)
 					return (-1);
-				else if (info->map[y + y_index][x + x_index] == ME)
-				{
-					info->edge++;
-					if (info->edge == 2)
-						return (-1);
-				}
-				else
-					info->rating += info->map[y + y_index][x + x_index];
 			}
 			x_index++;
 		}
@@ -62,26 +78,40 @@ static int	try_placing(t_struct *info, int y, int x)
 	return (-1);
 }
 
+/*
+** In place_piece we try to place the given piece in different places,
+** omce a 'legal' place is found, we calculate the score of the placement
+** by adding up the heatmap scores. The function always compares the
+** score to the best one and after parsing through the whole map it
+** passes on the best possible place coordinates to the return_result
+** function.
+*/
+
 void		place_piece(t_struct *info)
 {
 	int y;
 	int x;
-	int rating;
 
 	y = 0;
-	info->best_ratings[0] = 0;
+	info->best[0] = 0;
 	while ((info->map_height - info->max_y) > (y - info->min_y))
 	{
 		x = 0;
 		while ((info->map_width - info->max_x) > (x - info->min_x))
 		{
-			rating = try_placing(info, y - info->min_y, x - info->min_x);
-			if (rating > 0)
-				compare_rating(info, rating, y, x);
+			if ((info->rating =\
+			try_place(info, y - info->min_y, x - info->min_x)) > 0)
+			{
+				if (info->rating < info->best[0] || info->best[0] == 0)
+				{
+					info->best[0] = info->rating;
+					info->best[1] = y - info->min_y;
+					info->best[2] = x - info->min_x;
+				}
+			}
 			x++;
 		}
 		y++;
 	}
-	info->best_ratings[0] > 0 ? ft_printf("%d %d\n",\
-	info->best_ratings[1], info->best_ratings[2]) : ft_printf("%d %d\n", 0, 0);
+	return_result(info);
 }
