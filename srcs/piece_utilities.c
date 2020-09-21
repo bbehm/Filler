@@ -6,7 +6,7 @@
 /*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:52:33 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/21 12:55:47 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 16:10:47 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	get_more_piece(t_struct *info, int y, char *line)
 
 /*
 ** Checks map_width, map_height and coordinates of piece and saves info in
-** the struct
+** the struct.
 */
 
 int			get_piece(t_struct *info, char *line)
