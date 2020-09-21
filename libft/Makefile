@@ -6,7 +6,7 @@
 #    By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 15:45:47 by bbehm             #+#    #+#              #
-#    Updated: 2020/08/08 15:54:20 by bbehm            ###   ########.fr        #
+#    Updated: 2020/09/21 10:59:03 by bbehm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,14 +39,15 @@ FLAGS = -Wall -Werror -Wextra -c
 $(NAME): all
 
 all:
-	gcc $(FLAGS) $(SRC)
-	ar rc $(NAME) $(OBJ)
+	@gcc $(FLAGS) $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
