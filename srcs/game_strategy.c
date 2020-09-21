@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_strategy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 13:10:02 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/02 15:01:00 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 15:42:58 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static int	give_me_space(t_struct *info, int y, int x)
 		return (-1);
 	else if (info->map[y][x] == ME)
 	{
-		info->edge++;
-		if (info->edge == 2)
+		info->on_top++;
+		if (info->on_top == 2)
 			return (-1);
 	}
 	else
@@ -57,14 +57,14 @@ static int	try_place(t_struct *info, int y, int x)
 	int x_index;
 
 	y_index = 0;
-	info->edge = 0;
+	info->on_top = 0;
 	info->rating = 0;
 	while (y_index < info->piece_height)
 	{
 		x_index = 0;
 		while (x_index < info->piece_width)
 		{
-			if (info->piece[y_index][x_index] == 1)
+			if (info->piece[y_index][x_index] == SHAPE)
 			{
 				if (give_me_space(info, y + y_index, x + x_index) == -1)
 					return (-1);
@@ -73,9 +73,9 @@ static int	try_place(t_struct *info, int y, int x)
 		}
 		y_index++;
 	}
-	if (info->edge == 1)
-		return (info->rating);
-	return (-1);
+	if (info->on_top != 1)
+		return (-1);
+	return (info->rating);
 }
 
 /*

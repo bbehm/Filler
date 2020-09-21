@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:17:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/03 17:31:28 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 11:47:39 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@
 ** Function for freeing map and struct at the end of program
 */
 
-void	final_free(t_struct *info, int ret_val)
+void	final_free(t_struct *info)
 {
 	int i;
 
 	i = 0;
-	if (ret_val == 0)
+	while (i < info->map_height)
 	{
-		while (i < info->map_height)
-		{
-			free(info->map[i]);
-			i++;
-		}
-		free(info->map);
+		free(info->map[i]);
+		i++;
 	}
+	free(info->map);
 	free(info);
 }
 

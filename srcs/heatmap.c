@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   heatmap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 14:29:52 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/03 17:34:18 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 12:48:21 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-
-/*
-** need to skip one line that isn't map
-** checking both capital and lower letter
-*/
 
 int			chase_opponent(t_struct *info, int y, int x)
 {
@@ -84,7 +79,10 @@ void		map_existing(t_struct *info, int y, char *line)
 
 /*
 ** Function for creating a heatmap to map out which places are strategically
-** good choices to place pieces. It checks
+** good choices to place pieces. First, it maps out empty, enemy, and own
+** places. Then, for every empty place, it calculates a score according to
+** how close the enemy is - our aim is to place the piece as close to the
+** enemy as possible to block them from placing pieces.
 */
 
 void		heatmap(t_struct *info)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:05:28 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/03 17:37:58 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 15:36:22 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define EMPTY 0
 # define ENEMY -2
 # define ME -1
+# define SHAPE 1
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -37,7 +38,7 @@ typedef	struct	s_struct
 	int		min_y;
 	int		max_y;
 	int		best[3];
-	int		edge;
+	int		on_top;
 	int		rating;
 }				t_struct;
 
@@ -46,7 +47,7 @@ int				**create_box(int width, int height);
 void			heatmap(t_struct *info);
 int				get_map(t_struct *info, char *line);
 void			free_piece(t_struct *info);
-void			final_free(t_struct *info, int ret_val);
+void			final_free(t_struct *info);
 void			place_piece(t_struct *info);
 void			map_score(t_struct *info);
 

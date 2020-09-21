@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   piece_utilities.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 12:52:33 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/03 17:32:23 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 12:55:47 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	get_more_piece(t_struct *info, int y, char *line)
 	{
 		if (line[x] == '*')
 		{
-			info->piece[y][x] = 1;
+			info->piece[y][x] = SHAPE;
 			if (x < info->min_x || info->min_x == -1)
 				info->min_x = x;
 			if (x > info->max_x || info->max_x == -1)

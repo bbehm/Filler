@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbehm <bbehm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bbehm <bbehm@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 12:04:46 by bbehm             #+#    #+#             */
-/*   Updated: 2020/09/03 17:33:16 by bbehm            ###   ########.fr       */
+/*   Updated: 2020/09/21 11:47:52 by bbehm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,19 @@ static int		check_input(t_struct *info, char *line)
 
 int				main(void)
 {
-	int			ret_val;
 	t_struct	*info;
 	char		*line;
 
-	ret_val = 0;
 	if (!(info = initialize()))
 		return (1);
 	while (get_next_line(0, &line) > 0)
 	{
 		if (check_input(info, line) == -1)
-			ret_val = 1;
+		{
+			return (1);
+			free(info);
+		}
 	}
-	final_free(info, ret_val);
-	return (ret_val);
+	final_free(info);
+	return (0);
 }
